@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTotalTPS;
     TextView tvTotalST;
     TextView tvTotalPB;
+    private float Total;
 
     public double CalTxP(float val) {
-        return val * 1.05;
+        return val * 0.05;
         }
     public double CalTxF(float val){
-        return val * 1.09975;
+        return val * 0.09975;
     }
     public double CalculTotal(double a, double b, float c){
         return a + b + c;
@@ -53,13 +55,20 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MonLog", "une ligne avant le bouton");
         btnCalculTx.setOnClickListener(v -> {
             Log.d("MonLog", "Btn calcul tx cliquer");
-            float Total = Integer.parseInt(String.valueOf(etSousTot.getText()));
+            Total = Float.parseFloat(String.valueOf(etSousTot.getText()));
+            Log.d("MonLog", "le value of total"+ Total);
             double txQueb =  CalTxP(Total);
+            Log.d("MonLog", "valeur de txqueb"+ txQueb);
+
             double txFed = CalTxF(Total);
+            Log.d("MonLog", "valeur de txqueb"+ txFed);
+
             double TotalFinal = CalculTotal(txFed, txQueb, Total);
-            tvTotalST.setText((int) TotalFinal);
-            tvTotalTPS.setText((int) txFed);
-            tvTotalTVQ.setText((int) txQueb);
+            Log.d("MonLog", "valeur de total final"+ TotalFinal);
+            tvTotalST.setText(String.format("%10.2f", TotalFinal));
+            tvTotalTPS.setText(String.format("%10.2f", txFed));
+            tvTotalTVQ.setText(String.format("%10.2f", txQueb));
         });
     }
+
 }
