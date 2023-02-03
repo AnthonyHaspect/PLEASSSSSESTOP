@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="montantHolder">-- Entrez le montant ici --</string>
+    <string name="soustot">Sous-total :</string>
+    <string name="total">Total :</string>
+    <string name="pourboir">Pourboir :</string>
+    <string name="Hello">Hellow!World</string>
+    <string name="TVQ">TVQ : 9.975%</string>
+    <string name="TPS">TPS : 5%</string>
+    <string name="calcultx">Calculer</string>
+    <string name="pourbNet">Net $</string>
+    <string name="pourbPourc">Pourcentage %</string>
+</resources>
