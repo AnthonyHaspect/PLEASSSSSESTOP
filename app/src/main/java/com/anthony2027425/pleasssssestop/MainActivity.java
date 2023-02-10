@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public double CalculTotal(double a, double b, float c){
         return a + b + c;
     }
+    public double calculnetpourb(float a, float b){return a + b;}
 
 
     @Override
@@ -68,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
             tvTotalST.setText(String.format("%10.2f", TotalFinal));
             tvTotalTPS.setText(String.format("%10.2f", txFed));
             tvTotalTVQ.setText(String.format("%10.2f", txQueb));
+        });
+
+        btnPourbNet.setOnClickListener(v ->{
+            Log.d("MonLog", "Btn net pourboir cliquer");
+            String pb = etPourb.getText().toString();
+            String st = tvTotalST.getText().toString();
+            Float fSt = Float.parseFloat(st);
+            Float fPb = Float.parseFloat(pb);
+            double total = calculnetpourb(fPb, fSt);
+            tvTotalPB.setText(String.format("%10.2f", total));
         });
     }
 
